@@ -4,6 +4,10 @@ body {
   min-height: 100vh;
   margin: 0;
 }
+
+.quiz-card h1 {
+  color: violet;
+}
 .result-screen {
   color: #000;
 }
