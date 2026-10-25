@@ -5,6 +5,9 @@ import Question from "./questions.jsx";
 import Result from "./Result.jsx";
 import "./index.css";
 import "./App.css";
+import "./main.jsx";
+import Quizprogress from "./Quizprogress.jsx";
+
 
 function App() {
   const [state, setState] = useState(0);
