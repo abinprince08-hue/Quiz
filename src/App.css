@@ -8,6 +8,9 @@ body {
 .quiz-card h1 {
   color: violet;
 }
+.quiz-card h2 {
+  color: black;
+}
 .result-screen {
   color: #000;
 }
