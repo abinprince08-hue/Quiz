@@ -1,151 +1,101 @@
-body {
-  background: linear-gradient(135deg, #0b1b3a, #162f5c);
-  color: white;
-  min-height: 100vh;
-  margin: 0;
-}
-
-.quiz-card h1 {
-  color: violet;
-}
-.quiz-card h2 {
-  color: black;
-}
-.result-screen {
-  color: #000;
-}
-.counter {  
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-}
-
-button {
-  background: var(--accent);
-  color: var(--accent-text);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  color: #01f73e;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-* {
-  box-sizing: border-box;
-}
-
-
-* {
-  box-sizing: border-box;
-}
 
 :root {
-  font-family: Inter, system-ui, Arial, sans-serif;
-  color: #172033;
-  background: #f3f5fb;
-  font-synthesis: none;
+  font-family: Inter, Arial, sans-serif;
+  --accent: #5149c6;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  min-width: 320px;
   min-height: 100vh;
-}
-
-button {
-  font: inherit;
+  background: linear-gradient(135deg, #0b1b3a, #162f5c);
+  color: white;
 }
 
 .app-shell {
-  width: min(100% - 32px, 720px);
-  margin: 0 auto;
-  padding: 48px 0;
+  width: min(720px, calc(100% - 32px));
+  margin: auto;
+  padding: 32px 0;
 }
 
 .home-card,
 .question-card,
 .result-card {
-  background: #ffffff;
+  padding: 24px;
   border: 1px solid #e5e9f2;
-  border-radius: 20px;
-  padding: 32px;
-  box-shadow: 0 12px 40px rgba(30, 45, 80, 0.06);
+  border-radius: 16px;
+  background: white;
+  color: #172033;
+  box-shadow: 0 12px 40px #0001;
 }
 
-.home-card {
+.home-card,
+.result-card {
   text-align: center;
-  margin-top: 48px;
 }
 
 h1 {
-  margin: 8px 0 12px;
   font-size: clamp(2rem, 6vw, 3rem);
-  letter-spacing: -0.05em;
 }
 
 h2 {
-  font-size: clamp(1.2rem, 4vw, 1.6rem);
   line-height: 1.45;
 }
 
-p {
-  line-height: 1.7;
+p,
+.quiz-footer span {
   color: #647089;
+  line-height: 1.6;
 }
 
 .eyebrow {
-  color: #5b55d6;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
+  color: var(--accent);
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
-.home-info {
+.home-info,
+.quiz-footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   gap: 12px;
   flex-wrap: wrap;
   margin: 24px 0;
 }
 
-.home-info span {
+.home-info span,
+.counter {
   padding: 8px 12px;
-  border-radius: 999px;
+  border-radius: 8px;
   background: #f0efff;
-  color: #5149c6;
-  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+button {
+  padding: 12px 18px;
+  border: 1px solid #dce2ee;
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .primary-button {
-  border: 0;
-  border-radius: 10px;
-  padding: 13px 22px;
-  background: #5149c6;
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.primary-button:hover:not(:disabled) {
-  background: #3f38a9;
-  transform: translateY(-1px);
-}
-
-.primary-button:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
+  font-weight: bold;
 }
 
 .home-card .primary-button {
@@ -153,44 +103,27 @@ p {
   max-width: 360px;
 }
 
-.quiz-header {
-  margin-bottom: 28px;
-}
-
-.quiz-header h1 {
-  font-size: 2.2rem;
-}
-
-.progress-section {
+.progress-section,
+.counter {
   margin-bottom: 24px;
 }
 
 .progress-label {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
   margin-bottom: 10px;
-  font-size: 0.9rem;
-  font-weight: 700;
 }
 
 .progress-track {
   height: 9px;
   overflow: hidden;
-  border-radius: 999px;
+  border-radius: 10px;
   background: #e3e7f1;
 }
 
 .progress-fill {
   height: 100%;
-  border-radius: inherit;
   background: #6258dc;
-  transition: width 0.25s ease;
-}
-
-.question-card h2 {
-  margin-top: 0;
-  margin-bottom: 24px;
 }
 
 .options {
@@ -200,125 +133,68 @@ p {
 
 .option {
   width: 100%;
-  padding: 15px 16px;
-  border: 1px solid #dce2ee;
-  border-radius: 12px;
   background: white;
   color: #253047;
   text-align: left;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.option:hover {
-  border-color: #8178eb;
 }
 
 .option.selected {
   border: 2px solid #6258dc;
-  padding: 14px 15px;
   background: #f0efff;
   color: #4038a9;
-  font-weight: 700;
+  font-weight: bold;
 }
 
-.option:focus-visible,
-.primary-button:focus-visible {
-  outline: 3px solid #a5b4fc;
-  outline-offset: 3px;
+.quiz-card h1 {
+  color: violet;
 }
 
-.quiz-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: 24px;
+.quiz-card h2 {
+  color: black;
 }
 
-.quiz-footer > span {
-  color: #647089;
-  font-size: 0.9rem;
-}
-
-.result-card {
-  text-align: center;
+.result-screen {
+  color: black;
 }
 
 .score-circle {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 150px;
   height: 150px;
   margin: 28px auto;
   border: 9px solid #e4e1ff;
   border-radius: 50%;
   background: #f5f4ff;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .score-circle strong {
   font-size: 2.3rem;
 }
 
-.score-circle span {
-  color: #6258dc;
-  font-weight: 700;
-}
-
-.result-message {
-  max-width: 420px;
-  margin: 0 auto 24px;
-}
-
 .result-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin-bottom: 28px;
 }
 
 .result-stats div {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 18px 10px;
+  padding: 16px;
   border-radius: 12px;
   background: #f6f7fb;
 }
 
-.result-stats strong {
-  font-size: 1.6rem;
-}
-
-.result-stats span {
-  color: #647089;
-  font-size: 0.8rem;
-}
-
 @media (max-width: 480px) {
   .app-shell {
-    width: min(100% - 20px, 720px);
-    padding: 24px 0;
+    width: calc(100% - 20px);
+    padding: 20px 0;
   }
 
   .home-card,
   .question-card,
   .result-card {
-    padding: 22px 18px;
-    border-radius: 16px;
-  }
-
-  .home-card {
-    margin-top: 24px;
-  }
-
-  .quiz-footer {
-    align-items: stretch;
-  }
-
-  .quiz-footer .primary-button {
-    flex: 1;
+    padding: 18px;
   }
 }
